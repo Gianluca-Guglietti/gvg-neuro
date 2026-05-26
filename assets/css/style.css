@@ -1,0 +1,378 @@
+/* ---------- Reset & base ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  font-family: 'Source Serif 4', 'Source Serif Pro', 'Crimson Pro', Georgia, 'Times New Roman', serif;
+  font-size: 18px;
+  line-height: 1.65;
+  color: #1d1d1d;
+  background: #fbfaf6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+img { max-width: 100%; height: auto; display: block; }
+a {
+  color: #2c5f7c;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(44, 95, 124, 0.25);
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+a:hover { border-bottom-color: #2c5f7c; color: #1d4a63; }
+h1, h2, h3, h4 {
+  font-family: 'Source Serif 4', 'Source Serif Pro', 'Crimson Pro', Georgia, serif;
+  font-weight: 600;
+  line-height: 1.25;
+  color: #111;
+  letter-spacing: -0.01em;
+}
+h1 { font-size: 2.1rem; margin: 0 0 0.4em; }
+h2 { font-size: 1.45rem; margin: 2em 0 0.6em; }
+h3 { font-size: 1.15rem; margin: 1.6em 0 0.4em; }
+p { margin: 0 0 1em; }
+hr {
+  border: 0;
+  border-top: 1px solid #e3e0d8;
+  margin: 2.5rem 0;
+}
+code, pre, .ui, nav, button {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* ---------- Layout ---------- */
+.page {
+  max-width: 740px;
+  margin: 0 auto;
+  padding: 0 1.5rem 6rem;
+}
+.muted { color: #6b6b6b; }
+.small { font-size: 0.92rem; }
+
+/* ---------- Nav ---------- */
+.site-nav {
+  border-bottom: 1px solid #e3e0d8;
+  background: #fbfaf6;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.site-nav__inner {
+  max-width: 740px;
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.92rem;
+}
+.site-nav__brand {
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: #111;
+  border: none;
+}
+.site-nav__brand:hover { color: #2c5f7c; }
+.site-nav__links {
+  display: flex;
+  gap: 1.4rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-wrap: wrap;
+}
+.site-nav__links a {
+  color: #555;
+  border: none;
+  position: relative;
+}
+.site-nav__links a:hover { color: #2c5f7c; }
+.site-nav__links a.active { color: #111; }
+.site-nav__links a.active::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; bottom: -6px;
+  height: 1px;
+  background: #2c5f7c;
+}
+
+/* ---------- Homepage hero ---------- */
+.hero {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 2rem;
+  align-items: center;
+  margin: 3rem 0 1.5rem;
+}
+.hero__photo {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #efece4;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.05), 0 10px 30px -10px rgba(0,0,0,0.18);
+}
+.hero__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.hero__name { margin: 0 0 0.2em; }
+.hero__role {
+  color: #555;
+  font-style: italic;
+  margin: 0 0 0.8em;
+  font-size: 1.05rem;
+}
+.hero__affil {
+  color: #6b6b6b;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+/* ---------- Social row ---------- */
+.socials {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin: 1rem 0 0;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.9rem;
+}
+.socials a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.7rem;
+  border: 1px solid #d9d5c8;
+  border-radius: 999px;
+  color: #444;
+  background: #fff;
+}
+.socials a:hover {
+  border-color: #2c5f7c;
+  color: #2c5f7c;
+}
+.socials svg {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+/* ---------- About section ---------- */
+.about {
+  margin-top: 2rem;
+}
+.about p {
+  font-size: 1.05rem;
+  color: #2a2a2a;
+}
+
+/* ---------- Lists (publications/presentations) ---------- */
+.entry-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  counter-reset: entry;
+}
+.entry-list > li {
+  position: relative;
+  padding: 1.1rem 0 1.1rem 2.3rem;
+  border-bottom: 1px solid #ece9e0;
+  counter-increment: entry;
+}
+.entry-list > li:last-child { border-bottom: none; }
+.entry-list > li::before {
+  content: counter(entry);
+  position: absolute;
+  left: 0;
+  top: 1.2rem;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.78rem;
+  font-variant-numeric: tabular-nums;
+  color: #a39d8a;
+  letter-spacing: 0.04em;
+}
+.entry__title { display: block; margin-bottom: 0.15em; }
+.entry__authors { color: #2a2a2a; }
+.entry__authors .me { font-weight: 600; color: #111; }
+.entry__venue {
+  display: block;
+  font-style: italic;
+  color: #555;
+  margin-top: 0.15em;
+}
+.entry__year {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.82rem;
+  color: #6b6b6b;
+  letter-spacing: 0.02em;
+  display: inline-block;
+  margin-right: 0.6em;
+}
+.entry__links {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.85rem;
+  margin-top: 0.3rem;
+}
+.entry__links a {
+  display: inline-block;
+  margin-right: 0.8rem;
+}
+
+/* ---------- CV ---------- */
+.cv-section { margin-bottom: 2.5rem; }
+.cv-entry {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  gap: 1rem;
+  margin-bottom: 1.1rem;
+}
+.cv-entry__date {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.85rem;
+  color: #6b6b6b;
+  padding-top: 0.15rem;
+}
+.cv-entry__body p { margin: 0 0 0.4em; }
+.cv-entry__title { font-weight: 600; color: #111; }
+.cv-entry__sub { color: #555; font-style: italic; }
+
+.award-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.award-list li {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  gap: 1rem;
+  padding: 0.4rem 0;
+  border-bottom: 1px dashed #ece9e0;
+}
+.award-list li:last-child { border-bottom: none; }
+.award-list .date {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.85rem;
+  color: #6b6b6b;
+}
+
+/* ---------- Journal Club listing ---------- */
+.jc-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.jc-list li {
+  padding: 1.5rem 0;
+  border-bottom: 1px solid #ece9e0;
+}
+.jc-list li:last-child { border-bottom: none; }
+.jc-meta {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.82rem;
+  color: #6b6b6b;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+.jc-title {
+  font-size: 1.25rem;
+  margin: 0.2rem 0 0.4rem;
+  font-weight: 600;
+}
+.jc-title a {
+  color: #111;
+  border: none;
+}
+.jc-title a:hover { color: #2c5f7c; }
+.jc-excerpt { color: #444; margin: 0; }
+
+/* ---------- Journal club post ---------- */
+.post-header { margin: 2rem 0 2rem; }
+.post-meta {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.82rem;
+  color: #6b6b6b;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin: 0 0 0.6rem;
+}
+.post-title { font-size: 2.2rem; margin: 0 0 0.4em; line-height: 1.2; }
+.post-subtitle {
+  color: #555;
+  font-style: italic;
+  font-size: 1.1rem;
+  margin: 0;
+}
+.cite-box {
+  border-left: 3px solid #2c5f7c;
+  background: #f5f2ea;
+  padding: 0.9rem 1.1rem;
+  margin: 0 0 2rem;
+  font-size: 0.96rem;
+}
+.cite-box p { margin: 0 0 0.3rem; }
+.cite-box p:last-child { margin: 0; }
+.cite-box .ui { font-size: 0.8rem; color: #6b6b6b; }
+
+.post-body p { margin: 0 0 1.1em; }
+.post-body blockquote {
+  border-left: 3px solid #d9d5c8;
+  margin: 1.4em 0;
+  padding: 0.2em 0 0.2em 1.2em;
+  color: #444;
+  font-style: italic;
+}
+.post-body h2 {
+  font-size: 1.3rem;
+  margin: 2.2em 0 0.6em;
+}
+.post-footer {
+  margin: 3rem 0 0;
+  padding-top: 1.2rem;
+  border-top: 1px solid #e3e0d8;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.9rem;
+  color: #6b6b6b;
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+  margin-top: 5rem;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.82rem;
+  color: #888;
+  border-top: 1px solid #e3e0d8;
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 600px) {
+  body { font-size: 17px; }
+  .hero {
+    grid-template-columns: 1fr;
+    text-align: left;
+    gap: 1.4rem;
+    margin-top: 1.5rem;
+  }
+  .hero__photo {
+    width: 140px;
+    height: 140px;
+  }
+  h1 { font-size: 1.7rem; }
+  .post-title { font-size: 1.6rem; }
+  .cv-entry, .award-list li {
+    grid-template-columns: 1fr;
+    gap: 0.2rem;
+  }
+  .cv-entry__date, .award-list .date {
+    font-size: 0.78rem;
+  }
+  .site-nav__inner {
+    padding: 0.8rem 1rem;
+  }
+  .site-nav__links { gap: 1rem; }
+}

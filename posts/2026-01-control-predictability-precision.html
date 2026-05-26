@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Control, predictability, and the precision of pain expectations — Journal Club — Gianluca V. Guglietti</title>
+  <meta name="description" content="Notes on Habermann & Büchel (2025, Nature Communications) on how controllability sharpens the precision of pain expectations and what this means for assimilation effects." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+</head>
+<body>
+  <nav class="site-nav">
+    <div class="site-nav__inner">
+      <a href="../index.html" class="site-nav__brand">Gianluca V. Guglietti</a>
+      <ul class="site-nav__links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../cv.html">CV</a></li>
+        <li><a href="../publications.html">Publications</a></li>
+        <li><a href="../presentations.html">Presentations</a></li>
+        <li><a href="../journal-club.html" class="active">Journal Club</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="page">
+    <header class="post-header">
+      <p class="post-meta">Journal Club &middot; 28 January 2026</p>
+      <h1 class="post-title">Control, predictability, and the precision of pain expectations</h1>
+      <p class="post-subtitle">Notes on Habermann &amp; Büchel (2025, <em>Nature Communications</em>) — and why this paper finally untangles a confound I have been sitting with for years.</p>
+    </header>
+
+    <div class="cite-box">
+      <p>
+        Habermann, M., Strube, A., &amp; Büchel, C. (2025).
+        <strong>Control increases the precision of pain expectations by reducing the variance of priors.</strong>
+        <em>Nature Communications.</em>
+      </p>
+      <p class="ui"><a href="https://www.nature.com/articles/s41467-025-66038-7" target="_blank" rel="noopener">Read the paper →</a></p>
+    </div>
+
+    <div class="post-body">
+      <p>
+        Every once in a while a paper lands that does exactly the experiment I have been wishing
+        someone would do. Habermann &amp; Büchel's new <em>Nature Communications</em> paper is one
+        of those. The core question is deceptively simple: when control over a noxious stimulus
+        seems to reduce pain, is that really an effect of <em>control</em>, or is it sneaking in
+        through <em>predictability</em>? The two are almost always entangled — when I can choose
+        the upcoming stimulus, I also know exactly what is coming. The literature has been mixed
+        on whether control increases or decreases pain, and I think much of that confusion comes
+        from this very confound. This study finally pulls them apart, and the answer it gives is
+        cleaner than I expected.
+      </p>
+
+      <h2>Untangling the confound</h2>
+      <p>
+        The behavioral design is the part of the paper I keep coming back to. Participants
+        receive thermal stimuli under three conditions: <em>controllable</em>, where they freely
+        choose which of three calibrated intensities (≈30, 50, 70 / 100 VAS) to receive on each
+        trial; <em>predictable</em>, where the intensity is shown ahead of time but selected for
+        them; and <em>unpredictable</em>, where neither the choice nor the upcoming intensity is
+        known. By matching the information available across the controllable and predictable
+        conditions, the authors isolate the additional contribution of control on top of pure
+        prediction. It is the cleanest behavioral dissociation of these two factors I have seen
+        in the pain literature.
+      </p>
+
+      <h2>Bayesian priors get sharper, not lower</h2>
+      <p>
+        Behaviorally, the result is striking. The intuitive "control reduces unpleasantness"
+        account would predict a downward shift in the mean pain rating in the controllable
+        condition. Instead, what shows up is a change in <em>slope</em>: the relationship between
+        stimulus intensity and rating becomes shallower under control, and the variance of
+        ratings drops. Unpredictable low-intensity stimuli get pulled up; unpredictable
+        high-intensity stimuli get pulled down. This is exactly the signature of a Bayesian
+        observer with sharper priors — the posterior assimilates more strongly toward the
+        expected value as the prior becomes more precise.
+      </p>
+      <p>
+        The authors then make this explicit with a model comparison: precision-change models
+        outperform mean-shift models in capturing trial-by-trial ratings. I find this convincing
+        precisely because the modeling carries the same intuition as the raw data, rather than
+        being asked to rescue a weaker behavioral effect. The two halves of the paper reinforce
+        each other.
+      </p>
+
+      <h2>Neuroimaging that lines up with the model</h2>
+      <p>
+        The fMRI results follow the same logic. Pain-evoked activity in the canonical
+        nociceptive network — anterior insula, mid-cingulate, SI/SII, cerebellum, brainstem —
+        tracks pain intensity as expected. What is interesting is the parametric gradient across
+        conditions: activity in SMA, precuneus, and the periaqueductal grey scales from low
+        (controllable) to high (unpredictable), consistent with these regions encoding
+        expectation uncertainty rather than pain <em>per se</em>. The rostral anterior cingulate
+        moves in the opposite direction, increasing with controllability and predictability — a
+        nice convergence with the rACC's role in encoding prior precision and its known
+        descending projections to the PAG.
+      </p>
+
+      <h2>Why this changes how I think about assimilation effects</h2>
+      <p>
+        This is the part of the paper that genuinely shifted my thinking. I had been treating
+        controllability as something to control for — an annoying confound I would have to model
+        out of expectation-assimilation paradigms. Habermann &amp; Büchel's framing flips that:
+        controllability <em>is</em> a manipulation of prior precision. Whenever a task gives
+        subjects control, it is also covertly amplifying the strength with which their
+        expectations bias perception. That means assimilation effects measured in control-rich
+        paradigms are systematically larger, and the size of placebo and nocebo effects should
+        depend on how much agency participants are given over the cue–outcome contingency. This
+        is consistent with the broader argument the same group lays out in their recent
+        <em>Trends in Cognitive Sciences</em> review on Bayesian conceptions of pain control
+        (Habermann, Strube, &amp; Büchel, 2025, <em>TiCS</em>, 29(1)), where they propose that
+        control modulates pain primarily through expectation precision rather than through a
+        dedicated "control" module. After reading both pieces together, I think the field has a
+        unifying account here that is much more parsimonious than the patchwork of intuitive,
+        information-theoretic, and motivational explanations that had previously been in play.
+      </p>
+
+      <h2>Mild critiques</h2>
+      <p>
+        Two reservations worth flagging, neither of which I think undermines the main claim.
+        First, some of the variance findings ride on the geometry of the 0–100 rating scale; a
+        floor or ceiling effect could in principle compress ratings near the extremes and mimic
+        a slope change. The authors handle this carefully, but it is worth being explicit about
+        in any replication. Second, the imaging contrasts are between conditions that differ
+        along several dimensions simultaneously (salience, motor preparation, threat
+        monitoring), so reverse-inferring "expectation precision" from a regional effect should
+        be done lightly. Probabilistic cue–outcome paradigms — where precision varies
+        parametrically and control and agency can be partially decoupled — would be a natural
+        next step, and I suspect that is the direction the lab is heading.
+      </p>
+
+      <h2>Bottom line</h2>
+      <p>
+        This is one of those rare papers where the behavioral design, the computational model,
+        and the neural results all push in the same direction without any single piece doing
+        more work than it should. For anyone running pain expectation paradigms, the practical
+        upshot is that controllability cannot be treated as an inert nuisance variable — it is a
+        prior-precision manipulation in disguise, and once you see it that way, a lot of the
+        older "control reduces pain" literature comes back into focus.
+      </p>
+    </div>
+
+    <footer class="post-footer">
+      ← <a href="../journal-club.html">Back to Journal Club</a>
+    </footer>
+  </main>
+
+  <footer class="site-footer">
+    &copy; <span id="year">2026</span> Gianluca V. Guglietti &middot;
+    <a href="https://github.com/Gianluca-Guglietti/gvg-neuro" target="_blank" rel="noopener">Source</a>
+  </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
