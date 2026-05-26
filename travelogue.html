@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Travelogue — Gianluca V. Guglietti</title>
-  <meta name="description" content="Maps and notes from travels along the Adriatic coast." />
+  <title>Venetian Works of Defence on the Adriatic — Travelogue — Gianluca V. Guglietti</title>
+  <meta name="description" content="A route through the six components of the UNESCO transnational serial site Venetian Works of Defence between the 16th and 17th Centuries: Stato da Terra – Western Stato da Mar." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
@@ -27,13 +27,39 @@
   </nav>
 
   <main class="page">
-    <h1>Travelogue</h1>
-    <p class="muted">Maps and notes from travels.</p>
+    <header class="post-header">
+      <p class="post-meta">Travelogue &middot; 26 May 2026</p>
+      <h1 class="post-title">Venetian Works of Defence on the Adriatic</h1>
+      <p class="post-subtitle">A route through the components of the UNESCO transnational serial site Stato da Terra – Western Stato da Mar.</p>
+    </header>
 
-    <h2>Adriatic coast</h2>
-    <p>Trieste &middot; Split &middot; Dubrovnik &middot; Kotor.</p>
-    <div id="adriatic-map" class="travel-map" aria-label="Map of the Adriatic coast with Trieste, Split, Dubrovnik, and Kotor connected by a dotted route."></div>
-    <p class="muted small">Click a city to view photos.</p>
+    <div id="adriatic-map" class="travel-map" aria-label="Map of the Adriatic with the route Podgorica, Ulcinj, Kotor, Dubrovnik, Korčula, Split, Šibenik, Zadar, Rijeka, Trieste, Palmanova, Peschiera del Garda, Bergamo connected by a dotted line. Larger filled pins mark the six UNESCO-inscribed sites."></div>
+    <p class="muted small">Solid pins mark the six UNESCO-inscribed components. Lighter pins mark intermediate stops along the route. Click any city to view photos.</p>
+
+    <div class="post-body">
+      <p>
+        In 2017, UNESCO inscribed
+        <a href="https://whc.unesco.org/en/list/1533/" target="_blank" rel="noopener">Venetian Works of Defence between the 16th and 17th Centuries: Stato da Terra – Western Stato da Mar</a>
+        as a transnational serial property comprising six fortified sites built by the Republic
+        of Venice in Italy, Croatia, and Montenegro. The components illustrate the bastioned
+        <em>alla moderna</em> fortification system that spread across Europe in response to
+        gunpowder artillery, and trace the Venetian defensive network from the western
+        <em>terraferma</em> to the eastern Adriatic <em>Stato da Mar</em>.
+      </p>
+      <p>
+        The Stato da Terra cluster comprises the Venetian walls of Bergamo, the planned
+        star-fortress town of Palmanova (founded 1593), and the lakeside stronghold of
+        Peschiera del Garda. The Western Stato da Mar cluster continues along the Adriatic
+        with the urban defences of Zadar, the St. Nicholas Fortress at the entrance to the
+        Šibenik channel, and the fortifications of Kotor that climb from the bay to the ridge
+        of St. John.
+      </p>
+      <p>
+        The dotted route above connects the six inscribed sites along the Adriatic spine, with
+        intermediate stops at Podgorica, Ulcinj, Dubrovnik, Korčula, Split, Rijeka, and Trieste
+        filling in the geography between them.
+      </p>
+    </div>
   </main>
 
   <div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Photo viewer">
@@ -55,21 +81,30 @@
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // To add more photos: drop files into assets/img/travelogue/<city>/
-    // and append their paths to the corresponding array below.
-    const photos = {
-      trieste:   ['assets/img/travelogue/trieste/01.svg'],
-      split:     ['assets/img/travelogue/split/01.svg'],
-      dubrovnik: ['assets/img/travelogue/dubrovnik/01.svg'],
-      kotor:     ['assets/img/travelogue/kotor/01.svg'],
-    };
-
+    // Cities are listed in route order. unesco: true marks the six UNESCO components.
     const cities = [
-      { name: 'Trieste',   coords: [45.6495, 13.7768] },
-      { name: 'Split',     coords: [43.5081, 16.4402] },
-      { name: 'Dubrovnik', coords: [42.6507, 18.0944] },
-      { name: 'Kotor',     coords: [42.4247, 18.7712] },
+      { name: 'Podgorica',           slug: 'podgorica',           coords: [42.4304, 19.2594], unesco: false },
+      { name: 'Ulcinj',              slug: 'ulcinj',              coords: [41.9293, 19.2247], unesco: false },
+      { name: 'Kotor',               slug: 'kotor',               coords: [42.4247, 18.7712], unesco: true  },
+      { name: 'Dubrovnik',           slug: 'dubrovnik',           coords: [42.6507, 18.0944], unesco: false },
+      { name: 'Korčula',             slug: 'korcula',             coords: [42.9603, 17.1357], unesco: false },
+      { name: 'Split',               slug: 'split',               coords: [43.5081, 16.4402], unesco: false },
+      { name: 'Šibenik',             slug: 'sibenik',             coords: [43.7350, 15.8952], unesco: true  },
+      { name: 'Zadar',               slug: 'zadar',               coords: [44.1194, 15.2314], unesco: true  },
+      { name: 'Rijeka',              slug: 'rijeka',              coords: [45.3271, 14.4422], unesco: false },
+      { name: 'Trieste',             slug: 'trieste',             coords: [45.6495, 13.7768], unesco: false },
+      { name: 'Palmanova',           slug: 'palmanova',           coords: [45.9050, 13.3094], unesco: true  },
+      { name: 'Peschiera del Garda', slug: 'peschiera-del-garda', coords: [45.4419, 10.6926], unesco: true  },
+      { name: 'Bergamo',             slug: 'bergamo',             coords: [45.6983,  9.6773], unesco: true  },
     ];
+
+    // To add more photos: drop files into assets/img/travelogue/<slug>/
+    // and override the entry below, e.g.:
+    //   photos.kotor = ['assets/img/travelogue/kotor/01.jpg', 'assets/img/travelogue/kotor/02.jpg'];
+    const photos = Object.fromEntries(
+      cities.map(c => [c.slug, ['assets/img/travelogue/' + c.slug + '/01.svg']])
+    );
+    const cityNames = Object.fromEntries(cities.map(c => [c.slug, c.name]));
 
     const map = L.map('adriatic-map', {
       scrollWheelZoom: false,
@@ -93,38 +128,47 @@
       lineJoin: 'round',
     }).addTo(map);
 
+    const unescoStyle = {
+      radius: 7,
+      color: '#1d1d1d',
+      weight: 1.5,
+      fillColor: '#1d1d1d',
+      fillOpacity: 1,
+    };
+    const regularStyle = {
+      radius: 4,
+      color: '#1d1d1d',
+      weight: 1,
+      fillColor: '#fbfaf6',
+      fillOpacity: 1,
+    };
+
     function buildPopup(city) {
-      const slug = city.name.toLowerCase();
-      const list = photos[slug] || [];
+      const list = photos[city.slug] || [];
       const thumbs = list.map((src, i) =>
-        `<img class="travel-popup__thumb" data-city="${slug}" data-index="${i}" src="${src}" alt="${city.name} photo ${i + 1}" />`
+        `<img class="travel-popup__thumb" data-city="${city.slug}" data-index="${i}" src="${src}" alt="${city.name} photo ${i + 1}" />`
       ).join('');
       const body = thumbs || '<p class="muted small" style="margin:0">No photos yet.</p>';
+      const badge = city.unesco ? '<span class="travel-popup__badge">UNESCO</span>' : '';
       return `<div class="travel-popup">
-        <div class="travel-popup__name">${city.name}</div>
+        <div class="travel-popup__name">${city.name}${badge}</div>
         <div class="travel-popup__thumbs">${body}</div>
       </div>`;
     }
 
     cities.forEach(c => {
-      L.circleMarker(c.coords, {
-        radius: 5,
-        color: '#1d1d1d',
-        weight: 1.5,
-        fillColor: '#fbfaf6',
-        fillOpacity: 1,
-      })
+      L.circleMarker(c.coords, c.unesco ? unescoStyle : regularStyle)
         .addTo(map)
         .bindTooltip(c.name, {
-          permanent: true,
+          permanent: c.unesco,
           direction: 'right',
-          offset: [8, 0],
-          className: 'city-label',
+          offset: [c.unesco ? 11 : 8, 0],
+          className: c.unesco ? 'city-label city-label--unesco' : 'city-label',
         })
         .bindPopup(buildPopup(c), { className: 'travel-popup-wrap', maxWidth: 240 });
     });
 
-    map.fitBounds(L.latLngBounds(latlngs).pad(0.25));
+    map.fitBounds(L.latLngBounds(latlngs).pad(0.18));
 
     // ---------- Lightbox ----------
     const lightbox = document.getElementById('lightbox');
@@ -133,21 +177,19 @@
     let lbCity = null;
     let lbIndex = 0;
 
-    function cap(s) { return s.charAt(0).toUpperCase() + s.slice(1); }
-
     function renderLightbox() {
       const list = photos[lbCity] || [];
       if (!list.length) return;
       lbImg.src = list[lbIndex];
-      lbImg.alt = cap(lbCity) + ' photo ' + (lbIndex + 1);
-      lbCaption.textContent = cap(lbCity) + '  ' + (lbIndex + 1) + ' / ' + list.length;
+      lbImg.alt = cityNames[lbCity] + ' photo ' + (lbIndex + 1);
+      lbCaption.textContent = cityNames[lbCity] + '  ' + (lbIndex + 1) + ' / ' + list.length;
       const multi = list.length > 1;
       lightbox.querySelector('.lightbox__prev').style.visibility = multi ? 'visible' : 'hidden';
       lightbox.querySelector('.lightbox__next').style.visibility = multi ? 'visible' : 'hidden';
     }
 
-    function openLightbox(city, index) {
-      lbCity = city;
+    function openLightbox(slug, index) {
+      lbCity = slug;
       lbIndex = index;
       renderLightbox();
       lightbox.hidden = false;
