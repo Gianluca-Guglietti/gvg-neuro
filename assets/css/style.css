@@ -377,6 +377,33 @@ code, pre, .ui, nav, button {
   .site-nav__links { gap: 1rem; }
 }
 
+/* ---------- Travel map ---------- */
+.travel-map {
+  width: 100%;
+  height: 480px;
+  margin: 1.5rem 0 2rem;
+  border: 1px solid #d9d5c8;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #f3efe4;
+}
+.leaflet-container {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: #f3efe4;
+}
+.city-label {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: #1d1d1d;
+  text-shadow: 0 0 3px #fbfaf6, 0 0 3px #fbfaf6, 0 0 3px #fbfaf6;
+}
+.city-label::before { display: none; }
+
 /* ---------- Video embed ---------- */
 .video-embed {
   position: relative;

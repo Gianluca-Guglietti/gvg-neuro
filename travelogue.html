@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Travelogue — Gianluca V. Guglietti</title>
+  <meta name="description" content="Maps and notes from travels along the Adriatic coast." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <nav class="site-nav">
+    <div class="site-nav__inner">
+      <a href="index.html" class="site-nav__brand">Gianluca V. Guglietti</a>
+      <ul class="site-nav__links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="cv.html">CV</a></li>
+        <li><a href="publications.html">Publications</a></li>
+        <li><a href="presentations.html">Presentations</a></li>
+        <li><a href="journal-club.html">Journal Club</a></li>
+        <li><a href="travelogue.html" class="active">Travelogue</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="page">
+    <h1>Travelogue</h1>
+    <p class="muted">Maps and notes from travels.</p>
+
+    <h2>Adriatic coast</h2>
+    <p>Trieste &middot; Split &middot; Dubrovnik &middot; Kotor.</p>
+    <div id="adriatic-map" class="travel-map" aria-label="Map of the Adriatic coast with Trieste, Split, Dubrovnik, and Kotor connected by a dotted route."></div>
+  </main>
+
+  <footer class="site-footer">
+    &copy; <span id="year">2026</span> Gianluca V. Guglietti &middot;
+    <a href="https://github.com/Gianluca-Guglietti/gvg-neuro" target="_blank" rel="noopener">Source</a>
+  </footer>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const cities = [
+      { name: 'Trieste',   coords: [45.6495, 13.7768] },
+      { name: 'Split',     coords: [43.5081, 16.4402] },
+      { name: 'Dubrovnik', coords: [42.6507, 18.0944] },
+      { name: 'Kotor',     coords: [42.4247, 18.7712] },
+    ];
+
+    const map = L.map('adriatic-map', {
+      scrollWheelZoom: false,
+      zoomControl: true,
+    });
+
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+      subdomains: 'abcd',
+      maxZoom: 19,
+    }).addTo(map);
+
+    const latlngs = cities.map(c => c.coords);
+
+    L.polyline(latlngs, {
+      color: '#1d1d1d',
+      weight: 2,
+      opacity: 0.85,
+      dashArray: '1 6',
+      lineCap: 'round',
+      lineJoin: 'round',
+    }).addTo(map);
+
+    cities.forEach(c => {
+      L.circleMarker(c.coords, {
+        radius: 5,
+        color: '#1d1d1d',
+        weight: 1.5,
+        fillColor: '#fbfaf6',
+        fillOpacity: 1,
+      }).addTo(map).bindTooltip(c.name, {
+        permanent: true,
+        direction: 'right',
+        offset: [8, 0],
+        className: 'city-label',
+      });
+    });
+
+    map.fitBounds(L.latLngBounds(latlngs).pad(0.25));
+  </script>
+</body>
+</html>
